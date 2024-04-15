@@ -418,9 +418,13 @@ form .btn2:hover
     font-size: 20px;
     font-weight: 300;
 }
+.tab-contents ul li span{
+    max-width: 200px;
+}
 
-
-
+#about .classFont{
+    font-size: 20px;
+}
 
 
 
