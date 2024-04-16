@@ -297,7 +297,7 @@ nav ul li a:hover::after{
 #contact
 {
     background: black;
-    padding: 150px;
+    padding-top: 150px;
     color: white;
 }
 #contact a{
@@ -316,14 +316,12 @@ nav ul li a:hover::after{
     font-size: 25px;
 }
 
-#contact .contact-left 
+/* #contact .contact-left 
 {
-    min-width: 400px;
 }
 #contact .contact-right 
 {
-    min-width: 400px;
-}
+} */
 .social-icons
 {
     margin-top: 30px;
@@ -446,6 +444,11 @@ nav .fa-solid
 /*--------small------*/
 @media only screen and (max-width:600px) {
   
+ #about .tab-links
+ {
+   display: inline-block;
+ }
+
     nav .fa-solid
 {
     display: block;
