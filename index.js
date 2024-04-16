@@ -44,19 +44,13 @@ function openmenu(){
 
 }
 //-------------------------------------------------send gmail 
-// function sendemail(){
-    
-//     console.log("sendemail")
-
-//     Email.send({
-//         Host : "smtp.elasticemail.com",
-//         Username : "mahmoud23199@gmail.com",
-//         Password : "506CBB29AFA3FF4494A5C824B4E5EB52393A",
-//         To : 'mahmoud23199@gmail.com',
-//         From : "mahmoud23199@gmail.com",
-//         Subject : "This is the subject",
-//         Body : "And this is the body"
-//     }).then(
-//       message => alert(message)
-//     );
-// }
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        var formItems = document.getElementById('contactForm');
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        input1.value = '';
+        input2.value = '';
+        formItems.reset();
+    }
+});
