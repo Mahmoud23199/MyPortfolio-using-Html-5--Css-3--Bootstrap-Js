@@ -44,3 +44,19 @@ function openmenu(){
 
 }
 //-------------------------------------------------send gmail 
+// function sendemail(){
+    
+//     console.log("sendemail")
+
+//     Email.send({
+//         Host : "smtp.elasticemail.com",
+//         Username : "mahmoud23199@gmail.com",
+//         Password : "506CBB29AFA3FF4494A5C824B4E5EB52393A",
+//         To : 'mahmoud23199@gmail.com',
+//         From : "mahmoud23199@gmail.com",
+//         Subject : "This is the subject",
+//         Body : "And this is the body"
+//     }).then(
+//       message => alert(message)
+//     );
+// }

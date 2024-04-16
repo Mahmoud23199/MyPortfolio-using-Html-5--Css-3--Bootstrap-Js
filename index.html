@@ -10,6 +10,31 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
+<!-- gmail -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent default form submission
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "mahmoud23199@gmail.com", 
+            Password : "506CBB29AFA3FF4494A5C824B4E5EB52393A", 
+            To : 'mahmoud23199@gmail.com',
+            From : "mahmoud23199@gmail.com",
+            Subject : "Contact Form Submission",
+            Body : "Name: " + document.getElementById('name').value + "<br>Email: " + document.getElementById('email').value + "<br>Message: " + document.getElementById('message').value
+        }).then(
+            message => {
+                if (message === 'OK') {
+                    alert("Your message has been sent successfully.");
+                    form.rest();
+                } else {
+                    alert("There was an error sending your message. Please try again later.");
+                }
+            }
+        );
+    }
+</script>
 </head>
 <body>
 <div id="header" class="col-12">
@@ -18,7 +43,7 @@
             <h1 class="logo text-white"><span style="color:#ff004f;">Mo</span>Salah</h1>
           <ul id="sidemenu">
             <li><a href="#header">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#Portfolio1">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -181,13 +206,12 @@
             </div>
 
             <div class="contact-right col-md-8 col">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" autocomplete="Name" required>
+                <form onsubmit="sendEmail(event)">
+                    <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="Name" required>
                     <br>
-                    <input type="email" name="Email" placeholder="Your email" autocomplete="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Your email" autocomplete="Email" required>
                     <br>
-                    <textarea name="Message" placeholder="Your Message" rows="6" autocomplete="off"></textarea>
-                    <!-- Set autocomplete="off" for the textarea if you don't want browser autofill -->
+                    <textarea name="message" id="message" placeholder="Your Message" rows="6" autocomplete="off"></textarea>
                     <br>
                     <button type="submit" class="btn2">Submit</button>
                 </form>
@@ -215,28 +239,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <!---formContact-->
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxq2jkQYWPwjXQJUPBH8Uhv9VgIWOMOtz7v2AHQVnGeXhf_vvKoN-I-SXyqQD7QWHS2/exec';
-const form = document.forms['submit-to-google-sheet'];
-const message =document.getElementById("message");
-form.addEventListener('submit', e => {
-  e.preventDefault();
-
-  console.log('Form Data:', new FormData(form));
-
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    .then(response => {
-      message.innerHTML="Message Sent successfully"
-      console.log(response)
-      setTimeout(function(){
-        message.innerHTML="";
-      },3000)
-      form.reset();
-    })
-    .catch(error => console.error('Error!', error.message));
-});
-
-  </script>
-  
 </body>
 </html>
